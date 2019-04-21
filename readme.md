@@ -55,3 +55,12 @@
        請到JWTGenerateCommand.php，將public function fire() { $this->fire(); } 的fire 改成 handle()
         
 </div>
+
+## 實作方面
+<div>
+        
+   參考：<a href="https://appdividend.com/2018/02/24/laravel-jwt-authentication-tutorial/">
+        https://appdividend.com/2018/02/24/laravel-jwt-authentication-tutorial/
+        </a>
+        
+</div>
