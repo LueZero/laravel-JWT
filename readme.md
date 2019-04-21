@@ -9,7 +9,9 @@
 <li>第一步:到 config > app.php </li>
 
 'providers' => [
+
     'Tymon\JWTAuth\Providers\JWTAuthServiceProvider',
+    
 ],
 
 
@@ -18,6 +20,12 @@
     'JWTAuth' => 'Tymon\JWTAuth\Facades\JWTAuth',
     'JWTFactory' => 'Tymon\JWTAuth\Facades\JWTFactory',
 ],
+
+<hr>
+
+<li>第一步:要在Laravel中發布配置文件，您需要運行以下代碼行</li>
+
+php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\JWTAuthServiceProvider"
 
 ## Laravel Sponsors
 
