@@ -1,8 +1,8 @@
 <h1>利用Laravel JWT Token 做基本驗證</h1>
 
-## About Laravel
+## 先安裝Jwt套件
 
-
+<li>composer create-project laravel/laravel jwtauth </li>
 
 ## Learning Laravel
 
