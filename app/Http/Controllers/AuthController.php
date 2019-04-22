@@ -18,14 +18,16 @@ class AuthController extends Controller
             'name'=>$request->name,
             'password'=>bcrypt($request->password),
         ];
+      
         $user = new Userstest;
         $user->insert($data);
 
         return response([
             'status' => 'success',
-            'data' => $user
         ], 200);
     }
+
+
 
 
     //登入
@@ -47,6 +49,8 @@ class AuthController extends Controller
 
 
 
+
+
     //查看
     public function user(Request $request)
     {   
@@ -55,8 +59,10 @@ class AuthController extends Controller
         return response([
             'status' => 'success',
             'data' => $user
-        ]);
+        ],200);
     }
+
+
 
 
 
@@ -65,7 +71,7 @@ class AuthController extends Controller
     {
         return response([
            'status' => 'success'
-        ]);
+        ],200);
     }
     
 }

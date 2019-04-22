@@ -10,7 +10,7 @@ class Userstest extends Model
 {
     use Notifiable;
 
-    protected $table = 'my_flights';
+    protected $table = 'users';
 
     // Rest omitted for brevity
 
