@@ -4,7 +4,7 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>註冊</title>
+    <title>登入</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -13,11 +13,7 @@
 </head>
 <body>
 <div class="container" style="margin-top:20px;">
-    <p class="h4">註冊畫面</p>
-        <div class="form-group">
-          <label for="exampleInputEmail1">姓名</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="name" placeholder="輸入姓名" name="name">
-        </div>
+    <p class="h4">登入畫面</p>
         <div class="form-group">
             <label for="email">信箱</label>
             <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="輸入信箱" name="email">
@@ -29,31 +25,47 @@
         <button type="submit" class="btn btn-primary" id="submit">Submit</button>
 </div>
 <script>
+    var check = function(check){
+        $.ajax({
+            type:'GET',
+            url:'./api/auth/check' ,
+            dataType: "json",
+            headers: {
+                'Authorization': 'Bearer '+check,
+            },
+            success: function(msg){
+                window.location.href='./userview';
+            },
+            error:function(xhr){
 
+            }
+        }); 
+    }
+    check('{{$token}}');
     //送出資料
     $('#submit').on('click',function(){
-        var name = $('input[name=name]').val();
         var email = $('input[name=email]').val();
         var password = $('input[name=password]').val();
         $.ajaxSetup({
-            headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
         });
         $.ajax({
             type:'POST',
-            url:'./api/auth/register' ,
+            url:'./api/auth/login' ,
             dataType: "json",
+            async:false,
             data: {
-                'name':name,
                 'email':email,
                 'password':password,
             },
             success: function(msg){
-                
+               // window.location.href='./login';
+               location.reload();
+            },
+            error:function(xhr){
+                alert('登入失敗'); 
             }
-        });
-
+        }).done(function(data){console.log(data)});;
     })
 </script>
 </body>

@@ -1,5 +1,7 @@
 <?php
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,9 +15,13 @@ use Illuminate\Http\Request;
 Route::post('auth/register', 'AuthController@register');//註冊會員
 Route::post('auth/login', 'AuthController@login');//登入獲得Api token
 
+
 //進入驗證
 Route::group(['middleware' => 'jwt.auth'], function(){
     Route::get('auth/user', 'AuthController@user');
+    Route::get('auth/check',function(){
+        return 0;
+    });
 });
 //登出
 Route::group(['middleware' => 'jwt.refresh'], function(){

@@ -9,6 +9,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
 Route::resource('index', 'Login\Logincontroller');
+Route::get('login', 'View\Viewcontroller@loginview');
+Route::get('userview', 'View\Viewcontroller@userview');

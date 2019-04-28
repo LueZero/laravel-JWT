@@ -1,12 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-
-
+use Response;
+use Cookie;
+use Session;
 use App\Http\Requests\RegisterFormRequest;
 use App\Model\Userstest;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
+use Tymon\JWTAuth\Exceptions;
+use phpDocumentor\Reflection\DocBlock\Tags\See;
 
 class AuthController extends Controller
 {
@@ -34,7 +37,6 @@ class AuthController extends Controller
     public function login(Request $request)
     {   
         $credentials = $request->only('email', 'password');//取信箱及密碼去驗證
-
         if ( ! $token = JWTAuth::attempt($credentials) ) {
             return response([
                 'status' => 'error',
@@ -42,11 +44,11 @@ class AuthController extends Controller
                 'msg' => 'Invalid Credentials.'
             ], 400);
         }
-
-        return response(['status' => 'success'])->header('Authorization', $token);
+      
+        Session::put('test',$token);
+        return response()->json(['status' => 'success','_token'=>$token],200)->header('Authorization', $token);
+      
     }
-
-
 
 
 
@@ -73,5 +75,5 @@ class AuthController extends Controller
            'status' => 'success'
         ],200);
     }
-    
+  
 }

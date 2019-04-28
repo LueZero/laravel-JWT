@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
+use Session;
 
 use JWTFactory;
 use JWTAuth;
@@ -23,7 +23,7 @@ class Logincontroller extends Controller
      */
     public function index(Request $request)
     {  
-      
+       
         return view('insert');
     }
 
@@ -45,8 +45,6 @@ class Logincontroller extends Controller
      */
     public function store(Request $request)
     {   
-        Users::all();
-        return 0 ;
         $user = Users::create([
             'name' => $request->post('name'),
             'email' => $request->post('email'),
