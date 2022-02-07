@@ -11,14 +11,11 @@
 <div>
     
     'providers' => [
-
         'Tymon\JWTAuth\Providers\JWTAuthServiceProvider',
-
     ],
 
 
     'aliases' => [
-
         'JWTAuth' => 'Tymon\JWTAuth\Facades\JWTAuth',
         'JWTFactory' => 'Tymon\JWTAuth\Facades\JWTFactory',
     ],
