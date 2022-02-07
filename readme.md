@@ -28,7 +28,7 @@
 
 <div>
    
-     php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\JWTAuthServiceProvider"。
+php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\JWTAuthServiceProvider"。
 
 </div>
 
@@ -40,7 +40,7 @@
 
 <div>
         
-        php artisan jwt:generate。
+php artisan jwt:generate。
         
 </div>
 
@@ -48,9 +48,9 @@
 
 <div>
         
-       ReflectionException : Method Tymon\JWTAuth\Commands\JWTGenerateCommand::handle() does not exist
-       請到JWTGenerateCommand.php，將public function fire() { $this->fire(); } 的fire 改成 handle()
-        
+ReflectionException : Method Tymon\JWTAuth\Commands\JWTGenerateCommand::handle() does not exist
+請到JWTGenerateCommand.php，將public function fire() { $this->fire(); } 的fire 改成 handle()
+
 </div>
 
 ## 實作方面
