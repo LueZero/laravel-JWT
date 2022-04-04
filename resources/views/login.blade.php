@@ -34,7 +34,7 @@
                 'Authorization': 'Bearer '+check,
             },
             success: function(msg){
-                window.location.href='./userview';
+                window.location.href='./userView';
             },
             error:function(xhr){
 
