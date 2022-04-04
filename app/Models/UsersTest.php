@@ -1,12 +1,12 @@
 <?php 
-namespace App\Model;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Userstest extends Model 
+class UsersTest extends Model 
 {
     use Notifiable;
 

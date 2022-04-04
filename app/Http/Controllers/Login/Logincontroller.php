@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers\Login;
 
-use App\Model\Users;
+use App\Models\Users;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Session;
-
 use JWTFactory;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 
-class Logincontroller extends Controller
+class LoginController extends Controller
 {   
    
     /**
@@ -45,13 +44,7 @@ class Logincontroller extends Controller
      */
     public function store(Request $request)
     {   
-        $user = Users::create([
-            'name' => $request->post('name'),
-            'email' => $request->post('email'),
-            'password' => Hash::make($request->post('password')),
-        ]);
-
-        return response()->json( [ 'token' => $token ] );
+        //
     }
 
     /**
