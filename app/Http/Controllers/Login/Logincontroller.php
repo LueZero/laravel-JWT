@@ -21,7 +21,7 @@ class LoginController extends Controller
      */
     public function index(Request $request)
     {  
-        return view('insert');
+        return view('register');
     }
 
     /**
